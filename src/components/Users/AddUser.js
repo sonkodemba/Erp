@@ -73,7 +73,7 @@ const handleChange = (e) =>{
 
       {/* Password */}
       <div className="items-center justify-center h-14 w-full my-4">
-          {/* adding Labels to the form */}
+          {/* Telephone Number Label */}
           <label className="block text-gray-600 text-sm font-normal">
              Telephone Number:
              </label>
