@@ -28,11 +28,11 @@ const handleChange = (e) =>{
              Full Name:
              </label>
           <input 
-          type="text"
-          name="fullName"
-          value={user.fullName}
-          onChange = {(e) => handleChange(e)}
-          placeholder='Enter Full Name' className="h-10 w-96 border mt-2 px-2 py-2 font-bold text-green-500">
+            type="text"
+            name="fullName"
+            value={user.fullName}
+            onChange = {(e) => handleChange(e)}
+            placeholder='Enter Full Name' className="h-10 w-96 border mt-2 px-2 py-2 font-bold text-green-500">
           </input>
 
         </div>
@@ -66,14 +66,13 @@ const handleChange = (e) =>{
           value={user.telephoneNumber}
           onChange = {(e) => handleChange(e)}
           placeholder="1234567" className="h-10 w-96 border mt-2 px-2 py-2">
-
           </input>
 
         </div>
 
       {/* Password */}
       <div className="items-center justify-center h-14 w-full my-4">
-          {/* Telephone Number Label */}
+          {/* adding Labels to the form */}
           <label className="block text-gray-600 text-sm font-normal">
              Telephone Number:
              </label>
