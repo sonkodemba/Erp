@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import UserServices from '../Services/Uservice';
 
 export const AddUser = () => {
   const [user, setUser] = useState({
@@ -12,9 +13,19 @@ export const AddUser = () => {
 const handleChange = (e) =>{
    const value = e.target.value;
   setUser({...user, [e.target.name] : value});
-}
+};
 
-  return (
+const saveUser = (e) =>{
+
+  e.preventDefault();
+  UserServices.saveUser(user).then((response) =>{
+    console.log(response)
+  }).catch((error) =>{
+     console.log(error);
+  });
+};
+
+  return (                                                                      
     
     <div className="flex max-w-2xl mx-auto shadow border-b my-5">
         <div className="px-8 py-8">
@@ -92,11 +103,14 @@ const handleChange = (e) =>{
         <div className="items-center justify-center h-14 w-full my-4 space-x-40">
           {/* Save Button */}
            
-          <button className="hover:bg-green-600 rounded text-white font-semibold bg-blue-400 px-5 py-1"> Save</button>
+          <button 
+          className="hover:bg-green-600 rounded text-white font-semibold bg-blue-400 px-5 py-1"
+          onClick={(e) =>saveUser(e)}
+          > Save</button>
 
         {/* Adding Clear Button */}
 
-        <button className="hover:bg-red-600 rounded text-white font-semibold bg-yellow-400 px-5 py-1"> Save</button>
+        <button className="hover:bg-red-600 rounded text-white font-semibold bg-yellow-400 px-5 py-1"> Cancel</button>
 
         </div>
         {/* <div>
