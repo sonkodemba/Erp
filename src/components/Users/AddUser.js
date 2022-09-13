@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import UserServices from '../Services/Uservice';
 
+
 export const AddUser = () => {
   const [user, setUser] = useState({
     id:"",
     fullName:"",
+    emailAddr:"",
     telephoneNumber:"",
-    email:"",
     password:""
 });
 
@@ -86,7 +87,7 @@ const saveUser = (e) =>{
       <div className="items-center justify-center h-14 w-full my-4">
           {/* Telephone Number Label */}
           <label className="block text-gray-600 text-sm font-normal">
-             Telephone Number:
+             Password:
              </label>
           <input
           type="password"
