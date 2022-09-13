@@ -15,7 +15,7 @@ class UserServices{
    
 
     saveUser(user){
-        return axios.post(GlobalEndPoint, user);
+        return axios.post(GlobalEndPoint.Base_Url, user);
     }
 
   
