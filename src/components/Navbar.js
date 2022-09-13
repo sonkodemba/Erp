@@ -5,11 +5,11 @@ const Navbar = () => {
     <div className="bg-gray-800">
       
     <div className='h-16 px-8 flex items-center'>
-    <p className='text-white font-bold'>
-        
-         Onclick Technologies
-         (EnterPrise Resource Planning)
-         </p>
+      <p className='text-white font-bold'>
+          
+          Onclick Technologies
+          (EnterPrise Resource Planning)
+        </p>
     </div>
   </div>
   );
