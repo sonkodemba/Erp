@@ -13,16 +13,25 @@ import UpdateConsumption from './components/Consumption/UpdateConsumption';
 import Meters from './components/Meter/Meters';
 import AddMeter from './components/Meter/AddMeter'
 import ShowMeter from './components/Meter/ShowMeter';
-import {UpdateMeter} from './components/Meter/UpdateMeter';
-
+import UpdateMeter from './components/Meter/UpdateMeter';
+import{Customers} from './components/Customer/Customers';
+import AddCustomer from './components/Customer/AddCustomer';
+import UpdateCustomer from './components/Customer/UpdateCustomer';
+import ShowConsumption from './components/Consumption/ShowConsumption';
 
 function App() {
   return(  
      <>
       <Navbar />
     <BrowserRouter>
+    <Routes>
+      <Route path='/customers' element={<Customers/>} />
+      <Route path='/customer/create' element={<AddCustomer/>} />
+      <Route path='/customer/update' element={<UpdateCustomer/>} />
+      <Route path='/customer/show' element={<ShowConsumption/>} />
+    </Routes>
    
-       <Routes>
+     <Routes>
        <Route path="/user/create" element  ={<AddUser/>} />
        <Route path="/users" element={<UserList />} />
        <Route path="/user/show" element  ={<ShowUser />} />
