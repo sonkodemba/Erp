@@ -17,7 +17,7 @@ import UpdateMeter from './components/Meter/UpdateMeter';
 import{Customers} from './components/Customer/Customers';
 import AddCustomer from './components/Customer/AddCustomer';
 import UpdateCustomer from './components/Customer/UpdateCustomer';
-import ShowConsumption from './components/Consumption/ShowConsumption';
+import ShowCustomer from './components/Consumption/ShowCustomer';
 
 function App() {
   return(  
