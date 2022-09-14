@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import UserServices from '../Services/Uservice';
 
 
@@ -26,6 +27,7 @@ export const AddUser = () => {
     });
   };
 
+  const route = useNavigate();
   return (                                                                      
     
     <div className="flex max-w-2xl mx-auto shadow border-b my-5">
@@ -106,7 +108,9 @@ export const AddUser = () => {
           > Save</button>
 
 
-        <button className="hover:bg-red-600 rounded text-white font-semibold bg-yellow-400 px-5 py-1"> Cancel</button>
+        <button
+        onclick={() => route("/users")}
+        className="hover:bg-red-600 rounded text-white font-semibold bg-yellow-400 px-5 py-1"> Cancel</button>
 
         </div>
        
