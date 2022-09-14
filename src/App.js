@@ -6,9 +6,11 @@ import React from 'react'
 
 function App() {
   return   <>
-  <Navbar />
-  <AddUser />
-   </>;
+   
+    <Navbar />
+ 
+      <AddUser />
+    </>;
 
 }
 
