@@ -99,23 +99,18 @@ const saveUser = (e) =>{
 
         </div>
 
-        {/* button */}
         <div className="items-center justify-center h-14 w-full my-4 space-x-40">
-          {/* Save Button */}
            
           <button 
           className="hover:bg-green-600 rounded text-white font-semibold bg-blue-400 px-5 py-1"
           onClick={(e) =>saveUser(e)}
           > Save</button>
 
-        {/* Adding Clear Button */}
 
         <button className="hover:bg-red-600 rounded text-white font-semibold bg-yellow-400 px-5 py-1"> Cancel</button>
 
         </div>
-        {/* <div>
-          <p className="text-red-500 font-thin">Errors and Omision Accepted Before you save..</p>
-        </div> */}
+       
         </div>
          
     </div>
