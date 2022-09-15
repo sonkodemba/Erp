@@ -26,6 +26,14 @@ import Rates from './components/Rate/Rates';
 import AddRate from './components/Rate/AddRate';
 import UpdateRate from './components/Rate/UpdateRate';
 import ShowRate from './components/Rate/ShowRate';
+import Readings from './components/Reading/Readings';
+import AddReading from './components/Reading/AddReading';
+import UpdateReading from './components/Reading/UpdateReading';
+import ShowReading from './components/Reading/ShowReading';
+import Zones from './components/Zone/Zones';
+import AddZone from './components/Zone/AddZone';
+import UpdateZone from './components/Zone/UpdateZone';
+import ShowZone from './components/Zone/ShowZone';
 
 
 
@@ -43,9 +51,9 @@ function App() {
     </Routes>
     <Routes>
     <Route path='/readings' element={<Readings />}/>
-    <Route path='/reading/create' element={<Readings />}/>
-    <Route path='/reading/update' element={<Readings />}/>
-    <Route path='/reading/show' element={<Readings />}/>
+    <Route path='/reading/create' element={<AddReading />}/>
+    <Route path='/reading/update' element={<UpdateReading />}/>
+    <Route path='/reading/show' element={<ShowReading />}/>
     </Routes>
     <Routes>
     <Route path='/zones' element={<Zones />}/>
@@ -55,9 +63,9 @@ function App() {
     </Routes>
     <Routes>
     <Route path='/villages' element={<Villages />}/>
-    <Route path='/villages/create' element={<AddVillage />}/>
-    <Route path='/villages/update' element={<UpdateVillage />}/>
-    <Route path='/villages/show' element={<ShowVillage />}/>
+    <Route path='/village/create' element={<AddVillage />}/>
+    <Route path='/village/update' element={<UpdateVillage />}/>
+    <Route path='/village/show' element={<ShowVillage />}/>
     </Routes>
     <Routes>
       <Route path='/customers' element={<Customers/>} />

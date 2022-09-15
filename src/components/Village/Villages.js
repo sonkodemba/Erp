@@ -1,7 +1,9 @@
 import React from 'react'
 
-export const Villages = () => {
+export default function Villages() {
   return (
     <div>Villages</div>
+    
   )
 }
+
