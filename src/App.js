@@ -17,7 +17,18 @@ import UpdateMeter from './components/Meter/UpdateMeter';
 import{Customers} from './components/Customer/Customers';
 import AddCustomer from './components/Customer/AddCustomer';
 import UpdateCustomer from './components/Customer/UpdateCustomer';
-import ShowCustomer from './components/Consumption/ShowCustomer';
+import ShowCustomer from './components/Customer/ShowCustomer';
+import Villages from './components/Village/Villages';
+import AddVillage from './components/Village/AddVillage';
+import UpdateVillage from './components/Village/UpdateVillage';
+import ShowVillage from './components/Village/ShowVillage';
+import Rates from './components/Rate/Rates';
+import AddRate from './components/Rate/AddRate';
+import UpdateRate from './components/Rate/UpdateRate';
+import ShowRate from './components/Rate/ShowRate';
+
+
+
 
 function App() {
   return(  
@@ -25,10 +36,34 @@ function App() {
       <Navbar />
     <BrowserRouter>
     <Routes>
+    <Route path='/rates' element={<Rates />}/>
+    <Route path='/rate/create' element={<AddRate />}/>
+    <Route path='/rate/update' element={<UpdateRate />}/>
+    <Route path='/rate/show' element={<ShowRate />}/>
+    </Routes>
+    <Routes>
+    <Route path='/readings' element={<Readings />}/>
+    <Route path='/reading/create' element={<Readings />}/>
+    <Route path='/reading/update' element={<Readings />}/>
+    <Route path='/reading/show' element={<Readings />}/>
+    </Routes>
+    <Routes>
+    <Route path='/zones' element={<Zones />}/>
+    <Route path='/zone/create' element={<AddZone />}/>
+    <Route path='/zone/update' element={<UpdateZone />}/>
+    <Route path='/zone/show' element={<ShowZone />}/>
+    </Routes>
+    <Routes>
+    <Route path='/villages' element={<Villages />}/>
+    <Route path='/villages/create' element={<AddVillage />}/>
+    <Route path='/villages/update' element={<UpdateVillage />}/>
+    <Route path='/villages/show' element={<ShowVillage />}/>
+    </Routes>
+    <Routes>
       <Route path='/customers' element={<Customers/>} />
       <Route path='/customer/create' element={<AddCustomer/>} />
       <Route path='/customer/update' element={<UpdateCustomer/>} />
-      <Route path='/customer/show' element={<ShowConsumption/>} />
+      <Route path='/customer/show' element={<ShowCustomer/>} />
     </Routes>
    
      <Routes>
