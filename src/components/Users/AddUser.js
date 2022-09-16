@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import UserServices from '../Services/Uservice';
+import UserService from '../Services/UserService';
 
 
 export const AddUser = () => {
@@ -20,7 +20,7 @@ export const AddUser = () => {
   const saveUser = (e) =>{
 
     e.preventDefault();
-    UserServices.saveUser(user).then((response) =>{
+    UserService.saveUser(user).then((response) =>{
       console.log(response);
     }).catch((error) =>{
       console.log(error);

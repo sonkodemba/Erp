@@ -1,11 +1,33 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
- 
+import { useState } from 'react';
+import { useEffect } from 'react';
+import UserService from '../Services/UserService';
 
  
 export const UserList = () => {
     const route = useNavigate();
 
+    const [loadingData, setLoadingData] = useState(false);
+     const [users, setUsers] = useState(null);
+    
+    useEffect(() => {
+      const fetchData = () =>{
+        setLoadingData(true);
+        try {
+            const response = UserService.getUsers();
+            console.log(response);
+        } catch (error) {
+            console.log(error);
+        }
+        setLoadingData(false);
+      };
+      
+      fetchData();
+    
+    }, [])
+
+    
     
 
   return (
@@ -30,10 +52,11 @@ export const UserList = () => {
                      </th>
                 </tr>
             </thead>
+
             <tbody className="bg-white">
                 <tr>
                         <td className='text-left px-6 py-4 whitespace-nowrap'>
-                            <div className='text-sm text-gray-500'>
+                            <div  className='text-sm text-gray-500'>
                             Demba Sonko
                             </div>
                         </td>
