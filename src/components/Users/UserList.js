@@ -5,6 +5,9 @@ import { useNavigate } from 'react-router-dom'
  
 export const UserList = () => {
     const route = useNavigate();
+
+    
+
   return (
     <div className="container mx-auto my-10">
       <div className="flex-shadow border-b">
@@ -18,12 +21,12 @@ export const UserList = () => {
                     Action
                     
                      <button
-                        onClick={() => route("/user/create")}
-                        className="text-right rounded bg-yellow-600 hover:bg-green-400 text-white px-3 py-1">
-                            <i class="fa fa-user">
+                            onClick={() => route("/user/create")}
+                            className="text-right rounded bg-yellow-600 hover:bg-green-400 text-white px-3 py-1">
+                            <i className="fa fa-user">
                                     Add
                             </i>
-                        </button>
+                     </button>
                      </th>
                 </tr>
             </thead>

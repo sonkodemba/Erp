@@ -34,6 +34,7 @@ import Zones from './components/Zone/Zones';
 import AddZone from './components/Zone/AddZone';
 import UpdateZone from './components/Zone/UpdateZone';
 import ShowZone from './components/Zone/ShowZone';
+ 
 
 
 
@@ -43,6 +44,7 @@ function App() {
      <>
       <Navbar />
     <BrowserRouter>
+    
     <Routes>
     <Route path='/rates' element={<Rates />}/>
     <Route path='/rate/create' element={<AddRate />}/>
