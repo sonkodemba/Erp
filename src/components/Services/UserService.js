@@ -8,11 +8,11 @@ import GlobalEndPoint from "./GlobalEndPoint";
 class UserService{
     
     getUsers(){
-        return axios.get(GlobalEndPoint.list_user)
+        return axios.get("http://localhost:8080/api/v1/users")
     }
     
     saveUser(user){
-        return axios.post(GlobalEndPoint.Base_Url, user);
+        return axios.post(GlobalEndPoint.create_user_uri, user);
     }
    
 

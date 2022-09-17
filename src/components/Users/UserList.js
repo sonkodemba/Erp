@@ -4,30 +4,32 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import UserService from '../Services/UserService';
 
+
+
  
 export const UserList = () => {
     const route = useNavigate();
 
-    const [loadingData, setLoadingData] = useState(false);
+     const [loading, setLoading] = useState(false);
      const [users, setUsers] = useState(null);
-    
-    useEffect(() => {
-      const fetchData = () =>{
-        setLoadingData(true);
-        try {
-            const response = UserService.getUsers();
-            console.log(response);
-        } catch (error) {
-            console.log(error);
-        }
-        setLoadingData(false);
-      };
-      
-      fetchData();
-    
-    }, [])
 
-    
+     useEffect(() => {
+      
+        const fetchData = async() =>{
+            setLoading(true);
+            try {
+                //call to the Api
+                const response = await UserService.getUsers();
+                setUsers(response.data);              
+            } catch (error) {
+                console.log(error);
+            }
+            setLoading(false);
+;        }
+        fetchData();
+       
+     }, []);
+     
     
 
   return (
@@ -52,120 +54,50 @@ export const UserList = () => {
                      </th>
                 </tr>
             </thead>
-
+            {!loading && (
             <tbody className="bg-white">
-                <tr>
-                        <td className='text-left px-6 py-4 whitespace-nowrap'>
-                            <div  className='text-sm text-gray-500'>
-                            Demba Sonko
-                            </div>
-                        </td>
+                {users.map((user) => (
+                    <tr>
+                    <td className='text-left px-6 py-4 whitespace-nowrap'>
+                        <div  className='text-sm text-gray-500'>{user.full_name} </div>
+                    </td>
+                    
+                    <td  className='text-left px-6 py-4 whitespace-nowrap'>
+                        <div className='text-sm text-gray-500'>{user.email_addr}</div>
+                    </td>
+                    
+                    <td  className='text-left px-6 py-4 whitespace-nowrap'>
+                        <div className='text-sm text-gray-500'>{user.telephone_number} </div>
                         
-                        <td  className='text-left px-6 py-4 whitespace-nowrap'>
-                            <div className='text-sm text-gray-500'>dsonko@nawec.gm</div>
-                        </td>
+                    </td>
+                    <td  className='text-left px-6 py-4 whitespace-nowrap'>
+                        <div className='text-sm text-gray-500'>{user.password} </div>
                         
-                        <td  className='text-left px-6 py-4 whitespace-nowrap'>
-                            <div className='text-sm text-gray-500'>9976650 </div>
-                            
-                        </td>
+                    </td>
+                    
+                    <td  className='text-rigt font-medium text-smt px-6 py-4 tracking-wider'>
+                        <a
+                         href={() => route("/users")}  
+                         className='text-indigo-600 hover:text-orange-500-600 px-4'> 
+                            Add 
+                        </a>
                         
-                        <td  className='text-rigt font-medium text-smt px-6 py-4 tracking-wider'>
-                            <a
-                             href={() => route("/users")}  
-                             className='text-indigo-600 hover:text-orange-500-600 px-4'> 
-                                Add 
-                            </a>
-                            
-                            <a  
-                                href={() => route("/user/update")}
-                                className='text-green-600 hover:text-blue-600 px-4'>
-                                     Edit
-                            </a>
-                            <a 
-                                href={() => route("/users")}
-                                className='text-yellow-600 hover:text-red-600 px-4'>
-                                     Delete
-                            </a>
-                        </td>
-                      </tr>
-
-                      {/* Row 2 */}
-                      <tr>
-                        <td className='text-left px-6 py-4 whitespace-nowrap'>
-                                <div className='text-sm text-gray-500'>
-                                Demba Sonko
-                                </div>
-                        </td>
+                        <a  
+                            href={() => route("/user/update")}
+                            className='text-green-600 hover:text-blue-600 px-4'>
+                                 Edit
+                        </a>
+                        <a 
+                            href={() => route("/users")}
+                            className='text-yellow-600 hover:text-red-600 px-4'>
+                                 Delete
+                        </a>
+                    </td>
+                  </tr>
+                ))}
                         
-                        <td  className='text-left px-6 py-4 whitespace-nowrap'>
-                            <div className='text-sm text-gray-500'>dsonko@nawec.gm</div>
-                        </td>
-                        
-                        <td  className='text-left px-6 py-4 whitespace-nowrap'>
-                            <div className='text-sm text-gray-500'>9976650 </div>
-                            
-                        </td>
-                        
-                        <td  className='text-rigt font-medium text-smt px-6 py-4 tracking-wider'>
-                            <a
-                             
-                             href={() => route("/users")}  
-                             className='text-indigo-600 hover:text-orange-500-600 px-4'> 
-                                Add 
-                            </a>
-                            
-                            <a  
-                                href={() => route("/user/update")}
-                                className='text-green-600 hover:text-blue-600 px-4'>
-                                     Edit
-                            </a>
-                            <a 
-                                href={() => route("/users")}
-                                className='text-yellow-600 hover:text-red-600 px-4'>
-                                     Delete
-                            </a>
-                        </td>
-                      </tr>
-                         
-                         {/* Row 3 */}
-                         <tr>
-                        <td className='text-left px-6 py-4 whitespace-nowrap'>
-                                <div className='text-sm text-gray-500'>
-                                Demba Sonko
-                                </div>
-                        </td>
-                        
-                        <td  className='text-left px-6 py-4 whitespace-nowrap'>
-                            <div className='text-sm text-gray-500'>dsonko@nawec.gm</div>
-                        </td>
-                        
-                        <td  className='text-left px-6 py-4 whitespace-nowrap'>
-                            <div className='text-sm text-gray-500'>9976650 </div>
-                            
-                        </td>
-                        
-                        <td  className='text-rigt font-medium text-smt px-6 py-4 tracking-wider'>
-                            <a
-                             href={() => route("/users")}  
-                             className='text-indigo-600 hover:text-orange-500-600 px-4'> 
-                                Add 
-                            </a>
-                            
-                            <a  
-                                href={() => route("/user/update")}
-                                className='text-green-600 hover:text-blue-600 px-4'>
-                                     Edit
-                            </a>
-                            <a 
-                                href={() => route("/users")}
-                                className='text-yellow-600 hover:text-red-600 px-4'>
-                                     Delete
-                            </a>
-                        </td>
-                      </tr>
-                         
             </tbody>
+            )}
             </table>
         </div>
     </div>
