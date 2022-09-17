@@ -1,9 +1,5 @@
 import axios from "axios";
 import GlobalEndPoint from "./GlobalEndPoint";
- 
-
-
-
 
 class UserService{
     
