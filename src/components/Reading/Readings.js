@@ -1,31 +1,34 @@
-import React from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
+// import React from 'react';
+// import { useState } from 'react';
+// import { useEffect } from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import ReadingService from '../Services/ReadingService';
 
 export default function Readings() {
  
-  const [loading, setLoading] = useState(true);
-  const [readings, setReadings] = useState(null);
+  // const route  = useNavigate();
+  // const [loading, setLoading] = useState(true);
+  // const [readings, setReadings] = useState(null);
 
-  useEffect(() => {
+  // useEffect(() => {
      
-    const fetchData = async() =>{
-      setLoading(true);
-      try {
-        const response = await ReadingService.get();
-        setReadings(response.data);
+  //   const fetchData = async() =>{
+  //     setLoading(true);
+  //     try {
+  //       const response = await ReadingService.getReading();
+  //       setReadings(response.data);
 
-      } catch (error) {
-        console.log(error);
-      }
-      setLoading(false);
-    }
-    fetchData();
-  }, [])
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //     setLoading(false);
+  //   }
+  //   fetchData();
+  // }, [])
   
     
 
-  return (
-    <div>Readings</div>
-  )
+  // return (
+  //   <div>Readings</div>
+  // )
 }
