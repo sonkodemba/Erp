@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
- 
+  
 export default function Consuptions() {
 
   const [loadingData, setLoadingData] = useState(true);
@@ -12,9 +12,12 @@ export default function Consuptions() {
     const fetchData = async () =>{
         setLoadingData(true);
         try {
+          /**
+           * Call the Api
+           */
+          const response = await ConsumptionService.all();
+          setConsumption(response.data);
            
-           const response = await ConsumptionService.all();
-          
         } catch (error) {
           console.log(error);
         }
