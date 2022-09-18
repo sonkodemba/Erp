@@ -8,7 +8,7 @@ class CustomerService{
     /**
      * 
      * @EndPoint: http://localhost:8080/customes 
-     * @returns Collection<Customer>
+     * @returns {Collection<Customer>}
      */
     all(){
         return axios.get(GlobalEndPoint.list_of_customer_uri);
@@ -17,7 +17,7 @@ class CustomerService{
     /**
      * 
      * @EndPoint: http://localhost:8080/customer/create 
-     * @returns Customer
+     * @returns {Customer}
      */
     create(customer){
         return axios.post(GlobalEndPoint.create_customer_uri, customer);
@@ -26,7 +26,7 @@ class CustomerService{
       /**
      * 
      * @EndPoint: http://localhost:8080/customer/update/{id} 
-     * @returns Customer
+     * @returns {Customer}
      */
     update(customer, id){
         return axios.put(GlobalEndPoint.update_customer_uri, customer, id);

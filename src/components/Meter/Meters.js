@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
-import{MeterService} from 'MeterService';
+import{MeterService} from '../Services/MeterService';
 
 
 export const Meters = () => {
