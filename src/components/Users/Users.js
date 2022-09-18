@@ -7,7 +7,7 @@ import UserService from '../Services/UserService';
 
 
  
-export const UserList = () => {
+export const Users = () => {
     const route = useNavigate();
 
      const [loading, setLoading] = useState(false);
