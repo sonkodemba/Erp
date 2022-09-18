@@ -1,8 +1,7 @@
-import React from 'react'
+import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import{MeterService} from '../Services/MeterService';
-
+ 
 
 export const Meters = () => {
 
@@ -14,11 +13,12 @@ export const Meters = () => {
             setLoadingMeters(true);
             try{
 
-                const response =  await MeterService.
-            }catch(error){console.log(error);
+                const response =  await MeterService.all();
+                setMeters(response.data);
+              }catch(error){console.log(error);
             
             }
-
+            setLoadingMeters(false);
 
         }
         fetchMeterData();   

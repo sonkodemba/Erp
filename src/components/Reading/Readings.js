@@ -1,34 +1,35 @@
-// import React from 'react';
-// import { useState } from 'react';
-// import { useEffect } from 'react';
-// import { useNavigate } from 'react-router-dom';
-// import ReadingService from '../Services/ReadingService';
+import React, { useEffect } from 'react'
 
 export default function Readings() {
+
+  const [loadReading, setLoadingReading] = useState(true);
+  const [readings, setReadings] = useState([]);
+
+
+  useEffect(() =>{
+    const fetchReadingData = async ()=>{
+        setLoadingReading(true);
+        try {
+          // call to API
+          const response = ResdingService.all();
+          setReadings(response.data);
+        } catch (error) {
+          console.log(error);
+        }
+        setLoadingReading(false);
+    }
+    fetchReadingData();
+  }, []);
+  
  
-  // const route  = useNavigate();
-  // const [loading, setLoading] = useState(true);
-  // const [readings, setReadings] = useState(null);
-
-  // useEffect(() => {
-     
-  //   const fetchData = async() =>{
-  //     setLoading(true);
-  //     try {
-  //       const response = await ReadingService.getReading();
-  //       setReadings(response.data);
-
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //     setLoading(false);
-  //   }
-  //   fetchData();
-  // }, [])
   
     
 
-  // return (
-  //   <div>Readings</div>
-  // )
+  return (
+    {readings.map((reading) =>(
+    <div id={reading.id}>
+      <p>{reeading.MeterNumber}</p>
+    </div>
+    ))}
+    )
 }
