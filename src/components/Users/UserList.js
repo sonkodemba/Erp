@@ -30,33 +30,24 @@ export const UserList = () => {
        
      }, []);
   return (
+    <>
     <div className="container mx-auto my-10">
       <div className="flex-shadow border-b">
-      
-        <table class="min-w-full">
-            <thead className="bg-gray-100">
-                <tr>
-                <th className='text-left font-medium text-black uppercase tracking-wider py-3 px-6'>fullName</th>
-                <th className='text-left font-medium text-black uppercase tracking-wider py-3 px-6'>Email</th>
-                <th className='text-left font-medium text-black uppercase tracking-wider py-3 px-6'>Telephone</th>
-                <th className='text-justify font-medium text-black uppercase py-3 px-3'>
-                    Action
-                    
-                     <button
+      <button
                             onClick={() => route("/user/create")}
-                            className="text-right rounded bg-yellow-600 hover:bg-green-400 text-white px-3 py-1">
-                            <i className="fa fa-user">
-                                    Add
-                            </i>
-                     </button>
-                     </th>
+                            className="text-right rounded bg-yellow-600 hover:bg-green-400 text-white px-3 py-1"> Add </button>
+        <table class="min-w-full">
+            <thead className="bg-gray-50">
+                <tr>
+                    <th className='text-left font-medium text-black uppercase tracking-wider py-3 px-6'>fullName</th>
+                    <th className='text-left font-medium text-black uppercase tracking-wider py-3 px-6'>Email</th>
+                    <th className='text-left font-medium text-black uppercase tracking-wider py-3 px-6'>Telephone</th>
+                    <th className='text-justify font-medium text-black uppercase py-3 px-3'>Action</th>                  
+                    
                 </tr>
             </thead>
            
-                    <tbody className="bg-white">
-                    
-                        
-                             
+                    <tbody className="bg-white">     
                             <tr>
                             <td className='text-left px-6 py-4 whitespace-nowrap'>
                                 <div  className='text-sm text-gray-500'>demba </div>
@@ -102,5 +93,6 @@ export const UserList = () => {
               
         </div>
     </div>
+    </>
   )
 }
