@@ -7,7 +7,7 @@ class UserService{
      * 
      * @returns http://localhost:8080/api/v1/users
      */
-    index(){
+    all(){
         return axios.get(GlobalEndPoint.list_users_uri);
     }
     

@@ -1,7 +1,6 @@
-import React from 'react'
+import {React, useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useState } from 'react';
-import { useEffect } from 'react';
+import GlobalEndPoint from '../Services/GlobalEndPoint';
 import UserService from '../Services/UserService';
 
 
@@ -12,6 +11,7 @@ export const Users = () => {
 
      const [loading, setLoading] = useState(false);
      const [users, setUsers] = useState(null);
+     
 
      useEffect(() => {
       
@@ -19,7 +19,8 @@ export const Users = () => {
             setLoading(true);
             try {
                 //call to the Api
-                const response = await UserService.getUsers();
+                const response = await UserService.all();
+                // const users = await response.json();
                 setUsers(response.data);              
             } catch (error) {
                 console.log(error);
@@ -34,8 +35,7 @@ export const Users = () => {
     <div className="container mx-auto my-10">
       <div className="flex-shadow border-b">
       <button
-                            onClick={() => route("/user/create")}
-                            className="text-right rounded bg-yellow-600 hover:bg-green-400 text-white px-3 py-1"> Add </button>
+             className="text-right rounded bg-yellow-600 hover:bg-green-400 text-white px-3 py-1"> Add </button>
         <table class="min-w-full">
             <thead className="bg-gray-50">
                 <tr>
@@ -46,19 +46,20 @@ export const Users = () => {
                     
                 </tr>
             </thead>
-           
-                    <tbody className="bg-white">     
+                {!loading && (
+                    <tbody className="bg-white"> 
+                    {users.map((user) =>(
                             <tr>
                             <td className='text-left px-6 py-4 whitespace-nowrap'>
-                                <div  className='text-sm text-gray-500'>demba </div>
+                                <div  className='text-sm text-gray-500'>{user.fullName} </div>
                             </td>
     
                             <td  className='text-left px-6 py-4 whitespace-nowrap'>
-                                <div className='text-sm text-gray-500'>dsonko@nawec.gm</div>
+                                <div className='text-sm text-gray-500'>{user.emailAddr}</div>
                             </td>
     
                             <td  className='text-left px-6 py-4 whitespace-nowrap'>
-                                <div className='text-sm text-gray-500'>9976650 </div>
+                                <div className='text-sm text-gray-500'>{user.telephoneNumber} </div>
                                 
                             </td>
                             <td  className='text-left px-6 py-4 whitespace-nowrap'>
@@ -85,10 +86,10 @@ export const Users = () => {
                                 </a>
                             </td>
                             </tr> 
-                     
+                     ))}
                 </tbody>
             
-            
+                )}
              </table>
               
         </div>
