@@ -20,7 +20,7 @@ export const AddUser = () => {
   const saveUser = (e) =>{
 
     e.preventDefault();
-    UserService.saveUser(user).then((response) =>{
+    UserService.crete(user).then((response) =>{
       console.log(response);
     }).catch((error) =>{
       console.log(error);
