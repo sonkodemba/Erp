@@ -3,10 +3,10 @@ import Navbar from './components/Navbar';
 import React from 'react'
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import { AddUser } from './components/Users/AddUser';
-import { UserList } from './components/Users/UserList';
+import { Users } from './components/Users/Users';
 import ShowUser from './components/Users/ShowUser';
 import { UpdateeUser } from './components/Users/UpdateeUser';
-import Consuptions from './components/Consumption/Consuptions';
+import Consumptions from './components/Consumption/Consumptions';
 import AddConsumption from './components/Consumption/AddConsumption';
 import ShowConsumption from './components/Consumption/ShowConsumption';
 import UpdateConsumption from './components/Consumption/UpdateConsumption';
@@ -78,12 +78,12 @@ function App() {
    
      <Routes>
        <Route path="/user/create" element  ={<AddUser/>} />
-       <Route path="/users" element={<UserList />} />
+       <Route path="/users" element={<Users />} />
        <Route path="/user/show" element  ={<ShowUser />} />
        <Route path="/user/update" element  ={<UpdateeUser />} />
       </Routes>
       <Routes>
-        <Route path="/consumptions" element={<Consuptions />} />
+        <Route path="/consumptions" element={<Consumptions />} />
         <Route path="/consumption/create" element  ={<AddConsumption />} />
         <Route path="/consumption/show" element={<ShowConsumption />} />
         <Route path="/consumption/update" element={<UpdateConsumption />} />
