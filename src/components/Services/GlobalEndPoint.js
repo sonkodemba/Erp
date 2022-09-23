@@ -59,7 +59,7 @@ class GlobalEndPoint{
 
    create_rate_uri = "http://localhost:8080/api/v1/rate/create";
    update_rate_uri = "http://localhost:8080/api/v1/update/id";
-   deletee_rate_uri = this.iprotocol+"/rate/delete/id";
+   deletee_rate_uri = "http://localhost:8080/api/v1/rate/delete/id";
    list_of_rates_iro = "http://localhost:8080/api/v1/rates";
 
    //payment Endpoints

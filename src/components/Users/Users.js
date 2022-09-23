@@ -9,7 +9,7 @@ export const Users = () => {
     const route = useNavigate();
 
      const [loading, setLoading] = useState(true);
-     const [users, setUsers] = useState([]);
+     const [users, setUsers] = useState(null);
      
 
      useEffect(() => {
@@ -44,22 +44,22 @@ export const Users = () => {
                     
                 </tr>
             </thead>
-                {!loading && (
+                {/* {!loading && ( */}
                     <tbody className='bg-white'> 
-                    {users.map((user) =>(
+                    {/* {users.map((user) =>( */}
                     
                
-                        <tr id={user.id}>
+                        <tr>
                             <td className='text-left px-6 py-4 whitespace-nowrap'>
-                                <div className='text-sm text-gray-500'>{user.fullName} </div>
+                                <div className='text-sm text-gray-500'>Demba Sonko </div>
                             </td>
 
                             <td className='text-left px-6 py-4 whitespace-nowrap'>
-                                <div className='text-sm text-gray-500'>{user.emailAddr}</div>
+                                <div className='text-sm text-gray-500'>dsonko@nawec.gm</div>
                             </td>
 
                             <td className='text-left px-6 py-4 whitespace-nowrap'>
-                                <div className='text-sm text-gray-500'>{user.telephoneNumber} </div>
+                                <div className='text-sm text-gray-500'>9976650 </div>
 
                             </td>
                             <td className='text-left px-6 py-4 whitespace-nowrap'>
@@ -89,10 +89,10 @@ export const Users = () => {
                          
                     
                         
-                    ))}
+                    {/* ))} */}
                 </tbody>
             
-                )} 
+                {/* )}  */}
              </table>
               
         </div>
