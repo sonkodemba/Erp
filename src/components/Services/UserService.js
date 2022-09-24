@@ -8,9 +8,10 @@ class UserService{
      * @returns http://localhost:8080/api/v1/users
      */
     all(){
-        return axios.get(GlobalEndPoint.list_users_uri);
+        
+        return axios.get("http://localhost:8080/api/v1/users");
     }
-    
+
     /**
      * 
      * @param {*} user 
@@ -36,7 +37,7 @@ class UserService{
      * @returns http://localhost:8080/api/v1/user/delete 
      */
     delete(id){
-        return axios.delete(GlobalEndPoint.delete_user_uri, id);
+        return axios.delete(GlobalEndPoint.delete_user_uri+"/"+id);
     }
 
   

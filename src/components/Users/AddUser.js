@@ -4,12 +4,13 @@ import UserService from '../Services/UserService';
 
 
 export const AddUser = () => {
+    const route = useNavigate();
     const [user, setUser] = useState({
       id:" ",
       fullName:" ",
       emailAddr:" ",
       telephoneNumber:" ",
-      password:" "
+      password:""
   });
 
   const handleChange = (e) =>{
@@ -22,12 +23,23 @@ export const AddUser = () => {
     e.preventDefault();
     UserService.crete(user).then((response) =>{
       console.log(response);
+      route("/users");
     }).catch((error) =>{
       console.log(error);
     });
   };
 
-  const route = useNavigate();
+  const resetField =(event) =>{
+    event.preventDefault();
+    setUser({
+      id:" ",
+      fullName:" ",
+      emailAddr:" ",
+      telephoneNumber:" ",
+      password:""
+    });
+  }
+ 
   return (                                                                      
     
     <div className="flex max-w-2xl mx-auto shadow border-b my-5">
@@ -89,18 +101,22 @@ export const AddUser = () => {
           </input>
         </div>
 
-        <div className="items-center justify-center h-14 w-full my-4 space-x-40">
+        <div className="items-center justify-center h-14 w-full my-4 space-x-10">
           <button 
             className="hover:bg-green-600 rounded text-white font-semibold bg-blue-400 px-5 py-1"
             onClick={(e) =>saveUser(e)}>
                Save
           </button>
         <button
-          onClick={() => route("/users")}
+          onClick={(e) => resetField(e)}
           className="hover:bg-red-600 rounded text-white font-semibold bg-yellow-400 px-5 py-1"> 
           Cancel
         </button>
-
+        <button
+          onClick={() => route("/users")}
+          className="hover:bg-yellow-600 rounded text-white font-semibold bg-green-400 px-5 py-1"> 
+          Back
+        </button>
         </div>
        
         </div>

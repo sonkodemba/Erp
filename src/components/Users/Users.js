@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 import UserService from '../Services/UserService';
+import UsersComponent from './UsersComponent';
+import UserComponent from './UsersComponent';
 
 
 
@@ -9,30 +11,70 @@ export const Users = () => {
     const route = useNavigate();
 
      const [loading, setLoading] = useState(true);
-     const [users, setUsers] = useState(null);
-     
+     const [users, setUsers] = useState([]);
 
      useEffect(() => {
       
         const fetchData = async() =>{
+            var axios = require('axios');
             setLoading(true);
-            try {
-                //call to the Api
-                const response = await UserService.all();
-                setUsers(response.data);              
-            } catch (error) {
-                console.log(error);
-            }
-            setLoading(false);
+            var config = {
+              method: 'get',
+              url: 'http://localhost:8080/api/v1/users'
+            };
+            
+            axios(config)
+            .then(function (response) {
+            //   console.log(JSON.stringify(response.data));
+              setUsers(response.data);
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+
+            // fetch("http://localhost:8080/api/v1/users", {
+            //     headers : { 
+            //         'Content-Type': 'application/json',
+            //         'Accept': 'application/json'
+            //        }
+            // })
+            //     .then(response => response.json)
+            //     .then(res => setUsers(res))
+            //     .catch(err => setHasError(true));
+            // setLoading(true);
+            // try {
+            //     //call to the Api
+            //     const response = await UserService.all();
+            //    setUsers(response.data);              
+            // } catch (error) {
+            //     console.log(error);
+            // }
+            // setLoading(false);
         }
         fetchData();
        
      }, []);
+
+     const deleteUser =(e, id) =>{
+        e.preventDefault();
+        UserService.delete(id).
+        then((response) =>{
+            if(users){
+                /**
+                 * Update the Currrent of the users
+                 */
+                setUsers((prevElement) =>{
+                    return prevElement.filter((user) => user.id !== id);
+                })
+            }
+        });
+     }
   return (
     
     <div className="container mx-auto my-10">
       <div className="flex-shadow border-b">
       <button
+            onClick={() => route("/user/create")}
              className="text-right rounded bg-yellow-600 hover:bg-green-400 text-white px-3 py-1"> Add </button>
         <table className="min-w-full">
             <thead className="bg-gray-50">
@@ -40,59 +82,22 @@ export const Users = () => {
                     <th className='text-left font-medium text-black uppercase tracking-wider py-3 px-6'>fullName</th>
                     <th className='text-left font-medium text-black uppercase tracking-wider py-3 px-6'>Email</th>
                     <th className='text-left font-medium text-black uppercase tracking-wider py-3 px-6'>Telephone</th>
-                    <th className='text-justify font-medium text-black uppercase py-3 px-3'>Action</th>                  
+                    <th className='text-right font-medium text-black uppercase  tracking-wider py-3 px-6'>Action</th>                  
                     
                 </tr>
             </thead>
-                {/* {!loading && ( */}
+                {!loading && (
                     <tbody className='bg-white'> 
-                    {/* {users.map((user) =>( */}
-                    
-               
-                        <tr>
-                            <td className='text-left px-6 py-4 whitespace-nowrap'>
-                                <div className='text-sm text-gray-500'>Demba Sonko </div>
-                            </td>
-
-                            <td className='text-left px-6 py-4 whitespace-nowrap'>
-                                <div className='text-sm text-gray-500'>dsonko@nawec.gm</div>
-                            </td>
-
-                            <td className='text-left px-6 py-4 whitespace-nowrap'>
-                                <div className='text-sm text-gray-500'>9976650 </div>
-
-                            </td>
-                            <td className='text-left px-6 py-4 whitespace-nowrap'>
-                                <div className='text-sm text-gray-500'>password </div>
-
-                            </td>
-
-                            <td className='text-rigt font-medium text-smt px-6 py-4 tracking-wider'>
-                                <a
-                                    href={() => route("/users")}
-                                    className='text-indigo-600 hover:text-orange-500-600 px-4'>
-                                    Add
-                                </a>
-
-                                <a
-                                    href={() => route("/user/update")}
-                                    className='text-green-600 hover:text-blue-600 px-4'>
-                                    Edit
-                                </a>
-                                <a
-                                    href={() => route("/users")}
-                                    className='text-yellow-600 hover:text-red-600 px-4'>
-                                    Delete
-                                </a>
-                            </td>
-                        </tr>
-                         
-                    
-                        
-                    {/* ))} */}
+                    {users.map((user) =>(
+                        <UsersComponent
+                             user={user} 
+                             key={user.id} 
+                             deleteUser={deleteUser}
+                             />
+                    ))}
                 </tbody>
             
-                {/* )}  */}
+                )}
              </table>
               
         </div>
