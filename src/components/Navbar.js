@@ -11,7 +11,7 @@ const   Navbar = () => {
         <FaHome color='white' size='3rem' /> 
         </p>
          
-        <p className='text-white font-bold'> Village Development Committee</p>
+        <p className='text-white font-bold'> Samples</p>
     </div>
   </div>
   );
