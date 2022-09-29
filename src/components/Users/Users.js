@@ -16,40 +16,16 @@ export const Users = () => {
      useEffect(() => {
       
         const fetchData = async() =>{
-            var axios = require('axios');
+           
             setLoading(true);
-            var config = {
-              method: 'get',
-              url: 'http://localhost:8080/api/v1/users'
-            };
-            
-            axios(config)
-            .then(function (response) {
-            //   console.log(JSON.stringify(response.data));
-              setUsers(response.data);
-            })
-            .catch(function (error) {
-              console.log(error);
-            });
-
-            // fetch("http://localhost:8080/api/v1/users", {
-            //     headers : { 
-            //         'Content-Type': 'application/json',
-            //         'Accept': 'application/json'
-            //        }
-            // })
-            //     .then(response => response.json)
-            //     .then(res => setUsers(res))
-            //     .catch(err => setHasError(true));
-            // setLoading(true);
-            // try {
-            //     //call to the Api
-            //     const response = await UserService.all();
-            //    setUsers(response.data);              
-            // } catch (error) {
-            //     console.log(error);
-            // }
-            // setLoading(false);
+            try {
+                //call to the Api
+                const response = await UserService.all();
+               setUsers(response.data);              
+            } catch (error) {
+                console.log(error);
+            }
+            setLoading(false);
         }
         fetchData();
        
@@ -88,7 +64,8 @@ export const Users = () => {
             </thead>
                 {!loading && (
                     <tbody className='bg-white'> 
-                    {users.map((user) =>(
+
+                    {users && users.map((user) => (
                         <UsersComponent
                              user={user} 
                              key={user.id} 

@@ -7,7 +7,7 @@ const   Navbar = () => {
     <div className='h-16 px-8 flex items-center'>
       <p className='text-white font-bold'>
           
-          Village Development Commitee  -VDC
+          Sample Project
         </p>
     </div>
   </div>
