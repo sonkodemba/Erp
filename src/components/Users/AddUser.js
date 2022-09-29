@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import UserService from '../Services/UserService';
 
 
+
 export const AddUser = () => {
     const route = useNavigate();
     const [user, setUser] = useState({
@@ -29,16 +30,6 @@ export const AddUser = () => {
     });
   };
 
-  const resetField =(event) =>{
-    event.preventDefault();
-    setUser({
-      id:" ",
-      fullName:" ",
-      emailAddr:" ",
-      telephoneNumber:" ",
-      password:""
-    });
-  }
  
   return (                                                                      
     
@@ -50,42 +41,42 @@ export const AddUser = () => {
         
         <div className="items-center justify-center h-14 w-full my-4">
           <label className="block text-gray-600 text-sm font-normal">
-             Full Name:
+             {/* Full Name: */}
             </label>
           <input 
             type="text"
             name="fullName"
             value={user.fullName}
             onChange = {(e) => handleChange(e)}
-            placeholder='Enter Full Name' className="h-10 w-96 border mt-2 px-2 py-2 font-bold text-green-500">
+            placeholder="Enter Full Name" className="h-10 w-96 border mt-2 px-2 py-2 font-bold text-green-500">
           </input>
 
         </div>
 
         <div className="items-center justify-center h-14 w-full my-4">
           <label className="block text-gray-600 text-sm font-normal">
-             Telephone Number:
+             {/* Telephone Number: */}
             </label>
           <input
             type="email"
             name="emailAddr"
             value={user.emailAddr}
             onChange = {(e) => handleChange(e)}
-            placeholder="dsonko@nawec.gm" className="h-10 w-96 border mt-2 px-2 py-2">
+            placeholder="Enter Email" className="h-10 w-96 border mt-2 px-2 py-2">
 
           </input>
 
         </div>
         <div className="items-center justify-center h-14 w-full my-4">
           <label className="block text-gray-600 text-sm font-normal">
-             Telephone Number:
+             {/* Telephone Number: */}
              </label>
           <input
             type="Number"
             name="telephoneNumber"
             value={user.telephoneNumber}
             onChange = {(e) => handleChange(e)}
-            placeholder="1234567" className="h-10 w-96 border mt-2 px-2 py-2">
+            placeholder="Telephone Number" className="h-10 w-96 border mt-2 px-2 py-2">
           </input>
         </div>
       <div className="items-center justify-center h-14 w-full my-4">
@@ -97,7 +88,7 @@ export const AddUser = () => {
             name="password"
             value={user.password}
             onChange = {(e) => handleChange(e)}
-            placeholder="1234567" className="h-10 w-96 border mt-2 px-2 py-2">
+            placeholder="Password" className="h-10 w-96 border mt-2 px-2 py-2">
           </input>
         </div>
 
@@ -107,15 +98,11 @@ export const AddUser = () => {
             onClick={(e) =>saveUser(e)}>
                Save
           </button>
-        <button
-          onClick={(e) => resetField(e)}
-          className="hover:bg-red-600 rounded text-white font-semibold bg-yellow-400 px-5 py-1"> 
-          Cancel
-        </button>
+
         <button
           onClick={() => route("/users")}
-          className="hover:bg-yellow-600 rounded text-white font-semibold bg-green-400 px-5 py-1"> 
-          Back
+          className="hover:bg-red-600 rounded text-white font-semibold bg-yellow-400 px-5 py-1 float-right"> 
+          Cancel
         </button>
         </div> 
        

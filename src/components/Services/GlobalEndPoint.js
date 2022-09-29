@@ -5,8 +5,8 @@ class GlobalEndPoint{
     ipProtocol ="http://localhost:8080/api/v1";
 
     create_user_uri = "http://localhost:8080/api/v1/user/create";
-    update_User_uri = "http://localhost:8080/api/v1/user/update/{id}";
-    delete_user_uri = "http://localhost:8080/api/v1/user/delete/{id}";
+    update_User_uri = "http://localhost:8080/api/v1/user/update/id";
+    delete_user_uri = "http://localhost:8080/api/v1/user/delete/id";
     list_users_uri = "http://localhost:8080/api/v1/users";
 
     // Zone End points.
